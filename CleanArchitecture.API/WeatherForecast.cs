@@ -1,5 +1,6 @@
 namespace CleanArchitecture.API
-{
+{        //https://www.c-sharpcorner.com/article/introduction-to-clean-architecture-and-implementation-with-asp-net-core/
+
     public class WeatherForecast
     {
         public DateTime Date { get; set; }

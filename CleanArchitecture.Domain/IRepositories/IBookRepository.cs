@@ -11,6 +11,6 @@ namespace CleanArchitecture.Domain.IRepositories
     public interface IBookRepository : IRepository<Book>
     {
         //custom operations here
-        Task<IEnumerable<Book>> GetEmployeeByLastName(string lastname);
+        Task<bool> SoftDelete(Guid Input);
     }
 }

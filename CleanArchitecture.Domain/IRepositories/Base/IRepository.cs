@@ -10,7 +10,7 @@ namespace CleanArchitecture.Domain.IRepositories.Base
     {
         Task<List<T>> GetAllAsync();
         IQueryable<T> All();
-        Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(Guid id);
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
         Task<bool> DeleteAsync(T entity);

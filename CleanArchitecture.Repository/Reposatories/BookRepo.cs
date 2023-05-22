@@ -17,11 +17,22 @@ namespace CleanArchitecture.InfraStructure.Reposatories
         {
 
         }
-        public async Task<IEnumerable<Book>> GetEmployeeByLastName(string lastname)
+        public async Task<bool> SoftDelete(Guid Id)
         {
-            return await _employeeContext.Books
-                .Where(m => m.LastName == lastname)
-                .ToListAsync();
+            var Input = await _context.Books.FirstOrDefaultAsync(b=>b.Id == Id);
+            if (Input != null)
+            {
+                Input.IsDeleted = true;
+                _context.Books.Update(Input);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
+
+            }
+
         }
     }
 }
